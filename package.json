@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/webpack --config webpack.prod.config.js",
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.config.js"
   },
-  "author": "newming",
+  "author": "Honey",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
