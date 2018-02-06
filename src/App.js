@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Home from './Home';
 import Post from './Post';
+import store from './redux/store'
+import {Provider} from 'react-redux'
 import {
 	BrowserRouter as Router,
 	Switch,
@@ -11,12 +13,15 @@ class App extends React.Component{
 	render(){
 		return(
 			<div className='App'>
-				<Router>
-					<Switch>
-						<Route exact path='/' component={Home} />
-						<Route  path='/post' component={Post} />
-					</Switch>
-				</Router>
+				<Provider store={store}>
+					<Router>
+						<Switch>
+							<Route exact path='/' component={Home} />
+							<Route  path='/post' component={Post} />
+						</Switch>
+					</Router>
+				</Provider>
+				
 			</div>
 			)
 	}
