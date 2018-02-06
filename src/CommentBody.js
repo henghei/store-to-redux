@@ -22,8 +22,7 @@ class CommentBody extends React.Component{
 		console.log('handleClick',store.getState())
 	}
 	render(){
-		console.log()
-		let commentList=this.props.comments.slice().reverse().map((item,i)=>
+		let commentList=this.props.comments.reverse().map((item,i)=>
 			<li key={i}>{item}</li>
 			)
 		let commentForm=<form className='form' onSubmit={this.handleClick}>
@@ -41,6 +40,6 @@ class CommentBody extends React.Component{
 	}
 }
 const mapStateToProps=(state)=>({
-	comments:state
+	comments:state.comment
 })
 export default connect(mapStateToProps)(CommentBody);

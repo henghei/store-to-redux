@@ -13,6 +13,6 @@ class PostBody extends React.Component{
 	}
 }
 const mapStateToProps=(state)=>({
-	comments:state
+	comments:state.comment
 })
 export default connect(mapStateToProps)(PostBody);
