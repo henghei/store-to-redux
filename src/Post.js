@@ -4,13 +4,16 @@ import CommentBody from './CommentBody';
 import './post.css'
 class Post extends React.Component{
 	render(){
+	let {id}=this.props.match.params
+	console.log(this.props)
+		
 		return(
 			<div className='post'>
 				<div className='upper'>
-					<PostBody />
+					<PostBody postId={id} />
 				</div>
 				<div className='bottom'>
-				<CommentBody />
+					<CommentBody postId={id} />
 				</div>
 			</div>
 			)

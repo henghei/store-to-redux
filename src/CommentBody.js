@@ -12,8 +12,9 @@ class CommentBody extends React.Component{
 	handleClick=(e)=>{
 		e.preventDefault()
 		// let comments=this.state.comments.slice()
-		let comment=this.commentInput.value
-		store.dispatch({type:'ADD_COMMENT',comment})
+		let text=this.commentInput.value
+		let {postId}=this.props
+		store.dispatch({type:'ADD_COMMENT',text,postId})
 		// comments.push(content)
 		// this.setState({
 		// 	comments
@@ -22,8 +23,11 @@ class CommentBody extends React.Component{
 		console.log('handleClick',store.getState())
 	}
 	render(){
-		let commentList=this.props.comments.reverse().map((item,i)=>
-			<li key={i}>{item}</li>
+		let {postId}=this.props
+		let thisComments=this.props.comments.filter(item=>
+			item.post==postId)
+		let commentList=thisComments.reverse().map((item,i)=>
+			<li key={i}>{item.text}</li>
 			)
 		let commentForm=<form className='form' onSubmit={this.handleClick}>
 				<input type='text' ref={value=>this.commentInput=value} />
